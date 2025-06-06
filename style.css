@@ -1,0 +1,301 @@
+/* --- PENGATURAN DASAR & VARIABEL WARNA --- */
+:root {
+    --primary-color: #0d6efd; /* Biru yang lebih modern */
+    --primary-hover: #0b5ed7;
+    --secondary-color: #f8f9fa;
+    --dark-color: #1c2331;
+    --light-color: #ffffff;
+    --text-color: #333;
+    --text-secondary: #6c757d;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+/* --- RESET & FONT GLOBAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+    color: var(--text-color);
+    background: var(--light-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: var(--primary-color);
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* --- ANIMASI ON-SCROLL (Reveal) --- */
+.reveal {
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 1s, opacity 1s;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* --- NAVBAR --- */
+#navbar {
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.4s, box-shadow 0.4s;
+}
+
+#navbar.scrolled {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+}
+
+#navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* --- BAGIAN HERO --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1555066931-4365d1469c5b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--light-color);
+}
+
+.hero h1 {
+    font-size: 3.8rem;
+    margin-bottom: 15px;
+}
+
+.hero .subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background: var(--primary-color);
+    color: var(--light-color);
+    padding: 15px 35px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
+/* --- SECTION UMUM --- */
+.section {
+    padding: 100px 0;
+}
+
+.bg-light { background-color: var(--secondary-color); }
+.bg-dark { background-color: var(--dark-color); color: var(--light-color); }
+.bg-dark h2 { color: var(--light-color); }
+.bg-dark p { color: #ccc; }
+
+/* --- TENTANG SAYA --- */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.profile-placeholder {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    font-weight: 700;
+    box-shadow: var(--shadow);
+    justify-self: center;
+}
+
+/* --- KEAHLIAN --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.skill-item {
+    background: var(--light-color);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.skill-logo {
+    font-size: 4rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* --- PRESTASI --- */
+.achievement-card {
+    background: var(--light-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    text-align: left;
+}
+
+.achievement-details h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+/* --- KONTAK --- */
+.text-center { text-align: center; }
+.contact-links { margin-top: 40px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+
+.contact-item {
+    background: rgba(255,255,255,0.1);
+    color: var(--light-color);
+    padding: 15px 25px;
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.3s;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.contact-item:hover {
+    background: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+}
+
+/* --- FOOTER --- */
+footer {
+    background: #111;
+    color: #aaa;
+    text-align: center;
+    padding: 20px 0;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+    h2 { font-size: 2rem; }
+    .nav-links { display: none; } /* Untuk mobile, biasanya butuh menu burger */
+
+    .hero h1 { font-size: 2.8rem; }
+    .hero .subtitle { font-size: 1.2rem; }
+
+    .about-content { grid-template-columns: 1fr; text-align: center; }
+    .profile-placeholder { margin-bottom: 20px; }
+
+    .skills-grid { grid-template-columns: 1fr; }
+
+    .achievement-card { grid-template-columns: 1fr; text-align: center; }
+    .achievement-logo { margin-bottom: 20px; }
+
+    .contact-links { flex-direction: column; align-items: center; }
+}
